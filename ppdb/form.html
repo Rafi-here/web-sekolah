@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pendaftaran - SMK BPPI Baleendah</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-text">SMK BPPI</span>
+      </div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="/index.html">Home</a>
+        </li>
+        <li class="dropdown">
+          <a href="#">About <i class="fas fa-chevron-down icon-spacing"></i></a>
+          <div class="dropdown-content">
+            <div class="has-subdropdown">
+              <a href="#">Profile</a>
+              <div class="sub-dropdown">
+                <a href="/about/profile.html">Profile</a>
+                <a href="/about/sejarah.html">Sejarah</a>
+                <a href="/about/struktur.html#visi">Visi Misi</a>
+                <a href="/about/struktur.html">Struktur</a>
+                <a href="/about/guru.html">Daftar Guru</a>
+                <a href="/about/akreditasi.html">Akreditasi</a>
+                <a href="/about/fasilitas.html">Fasilitas</a>
+              </div>
+            </div>
+            <a href="/about/sambutan.html">Sambutan</a>
+            <a href="/about/agenda.html">Agenda Terdekat</a>
+            <a href="/about/berita.html">Berita Terbaru</a>
+            <a href="/about/kerja.html">Kerja Sama</a>
+            <a href="#">Web Yayasan</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#"
+            >Program <i class="fas fa-chevron-down icon-spacing"></i
+          ></a>
+          <div class="dropdown-content">
+            <a href="/program/program.html">Program Akademik</a>
+            <a href="/program/prestasi.html">Prestasi Sekolah</a>
+            <a href="/program/pkl.html">PKL</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">BKK <i class="fas fa-chevron-down icon-spacing"></i></a>
+          <div class="dropdown-content">
+            <a href="/bkk/study.html">Program Studi</a>
+            <a href="/bkk/hiring.html">Informasi Hiring</a>
+            <a href="/bkk/testi.html">Testimoni</a>
+            <a href="/bkk/sekolah.html">Berita Sekolah</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">PPDB <i class="fas fa-chevron-down icon-spacing"></i></a>
+          <div class="dropdown-content">
+            <a href="/ppdb/form.html">Formulir Pendaftaran</a>
+            <a href="/ppdb/sdk.html">Syarat & Ketentuan</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#"
+            >Kontak <i class="fas fa-chevron-down icon-spacing"></i
+          ></a>
+          <div class="dropdown-content">
+            <a href="/kontak/kontak.html">Kontak</a>
+            <a href="/kontak/kontak.html#denah">Denah</a>
+            <a href="/kontak/kontak.html#alamat">Alamat</a>
+            <a href="/kontak/kontak.html">Media Sosial</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Form Section -->
+        <section class="form-section">
+            <div class="container">
+                <div class="form-header">
+                    <h1>Formulir Pendaftaran</h1>
+                    <p>Isi data diri dengan lengkap dan benar untuk proses pendaftaran online</p>
+                </div>
+
+                <form class="registration-form" id="registrationForm">
+                    <!-- Nama Lengkap -->
+                    <div class="form-group">
+                        <label for="nama" class="form-label">
+                            <i class="fas fa-user"></i>
+                            Nama Lengkap
+                        </label>
+                        <input type="text" id="nama" name="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        <span class="error-message" id="namaError"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Masukkan alamat email">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <!-- Nomor Telepon -->
+                    <div class="form-group">
+                        <label for="telepon" class="form-label">
+                            <i class="fas fa-phone"></i>
+                            Nomor Telepon
+                        </label>
+                        <input type="tel" id="telepon" name="telepon" class="form-control" required placeholder="Masukkan nomor telepon">
+                        <span class="error-message" id="teleponError"></span>
+                    </div>
+
+                    <!-- Jenis Kelamin -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-venus-mars"></i>
+                            Jenis Kelamin
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
+                                <span class="radio-custom"></span>
+                                Laki-laki
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="jenis_kelamin" value="Perempuan">
+                                <span class="radio-custom"></span>
+                                Perempuan
+                            </label>
+                        </div>
+                        <span class="error-message" id="genderError"></span>
+                    </div>
+
+                    <!-- Tanggal Lahir -->
+                    <div class="form-group">
+                        <label for="tanggal_lahir" class="form-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            Tanggal Lahir
+                        </label>
+                        <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" required>
+                        <span class="error-message" id="birthError"></span>
+                    </div>
+
+                    <!-- Jurusan -->
+                    <div class="form-group">
+                        <label for="jurusan" class="form-label">
+                            <i class="fas fa-graduation-cap"></i>
+                            Jurusan yang Dipilih
+                        </label>
+                        <select id="jurusan" name="jurusan" class="form-control" required>
+                            <option value="">Pilih Jurusan</option>
+                            <option value="RPL">Rekayasa Perangkat Lunak (RPL)</option>
+                            <option value="TKJ">Teknik Komputer dan Jaringan (TKJ)</option>
+                            <option value="AKL">Akuntansi dan Keuangan Lembaga (AKL)</option>
+                            <option value="ACP">Axio Class Program (ACP)</option>
+                        </select>
+                        <span class="error-message" id="jurusanError"></span>
+                    </div>
+
+                    <!-- Alamat -->
+                    <div class="form-group">
+                        <label for="alamat" class="form-label">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Alamat Lengkap
+                        </label>
+                        <textarea id="alamat" name="alamat" class="form-control" rows="4" required placeholder="Masukkan alamat lengkap"></textarea>
+                        <span class="error-message" id="alamatError"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Form Footer -->
+                <div class="form-footer">
+                    <p>
+                        <i class="fas fa-info-circle"></i>
+                        Data yang Anda berikan akan dijaga kerahasiaannya dan hanya digunakan untuk proses pendaftaran.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+        
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sambutan</a></li>
+            <li><a href="#">Agenda Terdekat</a></li>
+            <li><a href="#">Berita Terbaru</a></li>
+            <li><a href="#">Struktur</a></li>
+            <li><a href="#">Kerjasama</a></li>
+            <li><a href="#">Web Yayasan</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Tentang</h3>
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Sejarah</a></li>
+            <li><a href="#">Visi Misi</a></li>
+            <li><a href="#">Struktur</a></li>
+            <li><a href="#">Daftar Guru</a></li>
+            <li><a href="#">Akreditasi</a></li>
+            <li><a href="#">Fasilitas</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Program</h3>
+          <ul>
+            <li><a href="#">Prestasi Sekolah</a></li>
+            <li><a href="#">PKL</a></li>
+            <li><a href="#">Program Akademik</a></li>
+            <li><a href="#">Tracker Study</a></li>
+            <li><a href="#">Testimoni Alumni</a></li>
+            <li><a href="#">BKK</a></li>
+            <li><a href="#">Informasi Hiring</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>PPDB & Kontak</h3>
+          <ul>
+            <li><a href="#">Formulir</a></li>
+            <li><a href="#">Surat dan Keterangan</a></li>
+            <li><a href="#">Acara Sekolah</a></li>
+            <li><a href="#">Berita Sekolah</a></li>
+            <li><a href="#">Agenda Sekolah</a></li>
+            <li><a href="#">Denah</a></li>
+            <li><a href="#">Alamat</a></li>
+            <li><a href="#">Media Sosial</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>Copyright © SMK BPPI Baleendah 2025</p>
+      </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+  </body>
+</html>

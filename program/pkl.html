@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sambutan Kepala Sekolah - SMK BPPI Baleendah</title>
+    <title>PKL - SMK BPPI Baleendah</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -74,7 +74,7 @@
             >Kontak <i class="fas fa-chevron-down icon-spacing"></i
           ></a>
           <div class="dropdown-content">
-            <a href="/kontak/">Kontak</a>
+            <a href="/kontak/kontak.html">Kontak</a>
             <a href="/kontak/kontak.html#denah">Denah</a>
             <a href="/kontak/kontak.html#alamat">Alamat</a>
             <a href="/kontak/kontak.html">Media Sosial</a>
@@ -88,33 +88,109 @@
     </nav>
 
     <!-- Main Content -->
-        <section class="sambutan-section">
-        <div class="sambutan-header">
-            <h1>Sambutan Kepala Sekolah</h1>
-            <p>SMK BPPI Baleendah</p>
-        </div>
-        
-        <div class="sambutan-content">
-            <div class="sambutan-text">
-                <p>Assalamu'alaikum Warahmatullahi Wabarakatuh,</p>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia at suscipit nam eveniet laborum esse perferendis doloribus facere delectus, repellat dolorem nisi non. Temporibus ut harum alias inventore, pariatur totam?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, aliquam dolore itaque distinctio repellat quidem libero sed cum quo dolores sequi porro quaerat at exercitationem ab corporis molestiae veritatis. Enim!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, dicta. Quam error nobis obcaecati illo, voluptate eligendi porro minus vitae est soluta? Totam ullam eligendi dolores alias magni suscipit esse?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nisi dicta nostrum eveniet quia voluptatem ratione magnam totam necessitatibus consectetur quo accusantium earum minus dignissimos nemo ex, sint quam iure!</p>
-                <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh.</p>
-            </div>
-            
-            <div class="kepala-sekolah-info">
-                <div class="kepala-sekolah-photo">
-                    <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Foto Kepala Sekolah">
+    <main class="main-content">
+        <!-- PKL Section -->
+        <section class="pkl-section">
+            <div class="containerr">
+                <!-- Header -->
+                <div class="pkl-header">
+                    <h1>Praktik Kerja Lapangan</h1>
+                    <p>Program PKL SMK BPPI Baleendah mempersiapkan siswa untuk dunia kerja nyata dengan pengalaman langsung di industri</p>
                 </div>
-                <div class="kepala-sekolah-name">Kepsek</div>
-                <div class="kepala-sekolah-title">Kepala Sekolah SMK BPPI Baleendah</div>
-            </div>
-        </div>
-    </section>
 
+                <!-- Content -->
+                <div class="pkl-content">
+                    <!-- Image -->
+                    <div class="pkl-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Siswa PKL di Dunia Kerja">
+                        <div class="image-caption">
+                            <i class="fas fa-building"></i>
+                            Siswa SMK BPPI sedang PKL di perusahaan mitra
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="pkl-form">
+                        <div class="form-header">
+                            <h3>Ada Pertanyaan Tentang PKL?</h3>
+                            <p>Silakan isi form berikut untuk informasi lebih lanjut</p>
+                        </div>
+                        
+                        <form id="pklQuestionForm">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fas fa-user"></i>
+                                    Nama Lengkap
+                                </label>
+                                <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap">
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" required placeholder="Masukkan alamat email">
+                                <span class="error-message" id="emailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="question">
+                                    <i class="fas fa-question-circle"></i>
+                                    Pertanyaan
+                                </label>
+                                <textarea id="question" name="question" rows="5" required placeholder="Tulis pertanyaan Anda tentang program PKL"></textarea>
+                                <span class="error-message" id="questionError"></span>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Kirim Pertanyaan
+                            </button>
+                        </form>
+
+                        <div class="form-footer">
+                            <p>
+                                <i class="fas fa-info-circle"></i>
+                                Tim kami akan membalas dalam 1x24 jam
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="pkl-info">
+                    <h3>Keunggulan Program PKL Kami</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4>Mitra Industri Terpercaya</h4>
+                            <p>Bekerja sama dengan 100+ perusahaan ternama di berbagai sektor industri</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h4>Pembimbing Berpengalaman</h4>
+                            <p>Didampingi oleh pembimbing dari sekolah dan mentor dari industri</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h4>Sertifikat Pengakuan</h4>
+                            <p>Mendapatkan sertifikat resmi yang diakui oleh dunia industri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        
 
     <!-- Footer -->
     <footer>

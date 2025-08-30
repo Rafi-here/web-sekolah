@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 5000);
 
     // Banner Slider
-    const bannerContainer = document.querySelector('.banner-container');
+    const bannerContainer = document.querySelector('.banner-containers');
     const bannerSlides = document.querySelectorAll('.banner-slide');
     const bannerDots = document.querySelectorAll('.banner-dot');
     const bannerPrevBtn = document.querySelector('.banner-prev');
@@ -898,4 +898,1154 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Nih contoh Gambar nya diperbesar');
         });
     });
+});
+
+// JavaScript untuk halaman fasilitas
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Halaman Fasilitas dimuat');
+    
+    // Inisialisasi efek hover untuk fasilitas
+    initFasilitasHover();
+    
+    // Animasi saat scroll
+    animateOnScroll();
+    
+    // Tambahan efek interaktif
+    initAdditionalEffects();
+});
+
+// Fungsi untuk efek hover pada fasilitas
+function initFasilitasHover() {
+    const fasilitasItems = document.querySelectorAll('.fasilitas-item');
+    
+    fasilitasItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const image = this.querySelector('.fasilitas-image img');
+            if (image) {
+                image.style.transform = 'scale(1.1)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const image = this.querySelector('.fasilitas-image img');
+            if (image) {
+                image.style.transform = 'scale(1)';
+            }
+        });
+    });
+}
+
+// Fungsi untuk animasi saat scroll
+function animateOnScroll() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Animasi khusus untuk info items
+                if (entry.target.classList.contains('info-item')) {
+                    const icon = entry.target.querySelector('.info-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                        icon.style.transition = 'transform 0.5s ease 0.2s';
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Element yang akan dianimate
+    const elementsToAnimate = document.querySelectorAll(
+        '.fasilitas-item, .info-item'
+    );
+    
+    elementsToAnimate.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(el);
+    });
+}
+
+// Fungsi untuk efek tambahan
+function initAdditionalEffects() {
+    const infoItems = document.querySelectorAll('.info-item');
+    
+    infoItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.info-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.1) rotate(5deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.info-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
+    });
+    
+    // Efek parallax sederhana pada gambar fasilitas
+    const fasilitasImages = document.querySelectorAll('.fasilitas-image');
+    
+    fasilitasImages.forEach(image => {
+        image.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const moveX = (x - centerX) / 20;
+            const moveY = (y - centerY) / 20;
+            
+            const img = this.querySelector('img');
+            img.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        image.addEventListener('mouseleave', function() {
+            const img = this.querySelector('img');
+            img.style.transform = 'scale(1) translate(0, 0)';
+            img.style.transition = 'transform 0.5s ease';
+        });
+    });
+}
+
+// Fungsi untuk filter fasilitas (jika diperlukan di masa depan)
+function initFasilitasFilter() {
+    console.log('Filter functionality can be implemented here when needed');
+}
+
+// Javascript Program section
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Halaman Program dimuat');
+    
+    // Inisialisasi tab navigation
+    initTabs();
+    
+    // Animasi saat scroll
+    animateOnScroll();
+    
+    // Efek hover untuk gallery
+    initGalleryHover();
+});
+
+// Fungsi untuk tab navigation
+function initTabs() {
+    const tabs = document.querySelectorAll('.nav-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            // Hapus class active dari semua tab dan konten
+            tabs.forEach(t => t.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Tambah class active ke tab yang diklik dan kontennya
+            this.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+}
+
+// Fungsi untuk animasi saat scroll
+function animateOnScroll() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                
+                // Animasi khusus untuk program items
+                if (entry.target.classList.contains('program-item')) {
+                    const icon = entry.target.querySelector('.program-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                        icon.style.transition = 'transform 0.5s ease 0.2s';
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Element yang akan dianimate
+    const elementsToAnimate = document.querySelectorAll(
+        '.gallery-item, .program-item'
+    );
+    
+    elementsToAnimate.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(el);
+    });
+}
+
+// Fungsi untuk efek hover gallery
+function initGalleryHover() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const image = this.querySelector('.gallery-image img');
+            if (image) {
+                image.style.transform = 'scale(1.1)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const image = this.querySelector('.gallery-image img');
+            if (image) {
+                image.style.transform = 'scale(1)';
+            }
+        });
+    });
+}
+
+// Fungsi untuk efek parallax pada gambar gallery
+function initGalleryParallax() {
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    
+    galleryImages.forEach(image => {
+        image.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const moveX = (x - centerX) / 20;
+            const moveY = (y - centerY) / 20;
+            
+            const img = this.querySelector('img');
+            img.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        image.addEventListener('mouseleave', function() {
+            const img = this.querySelector('img');
+            img.style.transform = 'scale(1) translate(0, 0)';
+            img.style.transition = 'transform 0.5s ease';
+        });
+    });
+}
+
+// Panggil fungsi parallax
+initGalleryParallax();
+
+
+// JavaScript untuk halaman prestasi
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Halaman Prestasi dimuat');
+    
+    // Inisialisasi animasi timeline
+    initTimelineAnimation();
+    
+    // Inisialisasi efek hover
+    initHoverEffects();
+    
+    // Inisialisasi counter animation
+    initCounterAnimation();
+});
+
+// Fungsi untuk animasi timeline
+function initTimelineAnimation() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.3
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Delay berbeda untuk setiap item
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    // Animasi untuk year dan icon
+                    const year = entry.target.querySelector('.timeline-year');
+                    const icon = entry.target.querySelector('.timeline-icon');
+                    
+                    if (year) {
+                        year.style.transform = 'scale(1)';
+                        year.style.transition = 'transform 0.5s ease 0.2s';
+                    }
+                    
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                        icon.style.transition = 'transform 0.5s ease 0.3s';
+                    }
+                }, index * 200);
+            }
+        });
+    }, observerOptions);
+    
+    timelineItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+    });
+}
+
+// Fungsi untuk efek hover
+function initHoverEffects() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const details = this.querySelector('.timeline-details');
+            if (details) {
+                details.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const details = this.querySelector('.timeline-details');
+            if (details) {
+                details.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    });
+}
+
+// Fungsi untuk animasi counter
+function initCounterAnimation() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsSection = document.querySelector('.prestasi-stats');
+    
+    let animated = false;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.textContent);
+                    let current = 0;
+                    const duration = 2000;
+                    const increment = target / (duration / 20);
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            clearInterval(timer);
+                            stat.textContent = target + '+';
+                        } else {
+                            stat.textContent = Math.floor(current) + '+';
+                        }
+                    }, 20);
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+}
+
+// Fungsi untuk smooth scroll (jika ada anchor links)
+function initSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Panggil smooth scroll
+initSmoothScroll();
+
+// JavaScript untuk halaman hiring
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Halaman Informasi Hiring dimuat');
+    
+    // Inisialisasi slider lowongan
+    initLowonganSlider();
+    
+    // Animasi saat scroll
+    animateOnScroll();
+    
+    // Event handler untuk tombol daftar
+    initDaftarButtons();
+});
+
+// Fungsi untuk slider lowongan
+function initLowonganSlider() {
+    const track = document.querySelector('.slider-tracker');
+    const slides = document.querySelectorAll('.slider');
+    const dots = document.querySelectorAll('.slider-dotss .dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    let visibleSlides = getVisibleSlides();
+    
+    // Fungsi untuk mendapatkan jumlah slide yang terlihat
+    function getVisibleSlides() {
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    }
+    
+    // Fungsi untuk update slider
+    function updateSlider() {
+        const slideWidth = 100 / visibleSlides;
+        track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Tombol next
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            if (currentSlide < slideCount - visibleSlides) {
+                currentSlide++;
+                updateSlider();
+            }
+        });
+    }
+    
+    // Tombol prev
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        });
+    }
+    
+    // Klik dots
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            currentSlide = slideIndex;
+            updateSlider();
+        });
+    });
+    
+    // Resize window responsif
+    window.addEventListener('resize', function() {
+        const newVisibleSlides = getVisibleSlides();
+        if (newVisibleSlides !== visibleSlides) {
+            visibleSlides = newVisibleSlides;
+            currentSlide = 0;
+            updateSlider();
+        }
+    });
+    
+    // Auto slide
+    let slideInterval = setInterval(() => {
+        if (currentSlide < slideCount - visibleSlides) {
+            currentSlide++;
+        } else {
+            currentSlide = 0;
+        }
+        updateSlider();
+    }, 5000);
+    
+    // Pause saat hover
+    const slider = document.querySelector('.lowongan-slider');
+    if (slider) {
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                if (currentSlide < slideCount - visibleSlides) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0;
+                }
+                updateSlider();
+            }, 5000);
+        });
+    }
+    
+    // Swipe untuk mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if (track) {
+        track.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        track.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+    }
+    
+    function handleSwipe() {
+        const minSwipeDistance = 50;
+    
+        if (touchStartX - touchEndX > minSwipeDistance) {
+            // Swipe kiri - next
+            if (currentSlide < slideCount - visibleSlides) {
+                currentSlide++;
+                updateSlider();
+            }
+        } 
+        
+        if (touchEndX - touchStartX > minSwipeDistance) {
+            // Swipe kanan - prev
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        }
+    }
+
+    // Inisialisasi awal
+    updateSlider();
+}
+
+// javascript untuk sekolah
+// JavaScript untuk halaman berita
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Halaman Berita dimuat');
+    
+    // Inisialisasi fungsi berita
+    initBerita();
+    
+    // Animasi saat scroll
+    animateOnScroll();
+    
+    // Event handler untuk tombol load more
+    initLoadMore();
+});
+
+// Fungsi untuk inisialisasi berita
+function initBerita() {
+    // Tambahkan event listener untuk card berita
+    const beritaCards = document.querySelectorAll('.berita-card');
+    
+    beritaCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Cegah navigasi jika yang diklik adalah link
+            if (!e.target.closest('.berita-link')) {
+                const link = this.querySelector('.berita-link');
+                if (link) {
+                    window.location.href = link.href;
+                }
+            }
+        });
+        
+        // Efek hover tambahan
+        card.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+            const image = this.querySelector('.berita-image img');
+            if (image) {
+                image.style.transform = 'scale(1.1)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const image = this.querySelector('.berita-image img');
+            if (image) {
+                image.style.transform = 'scale(1)';
+            }
+        });
+    });
+    
+    // Efek untuk link baca selengkapnya
+    const beritaLinks = document.querySelectorAll('.berita-link');
+    beritaLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.stopPropagation(); // Mencegah event bubbling ke card
+            // Tambahkan efek loading atau tracking di sini
+            console.log('Membuka berita:', this.closest('.berita-card').querySelector('.berita-title').textContent);
+        });
+    });
+}
+
+// Fungsi untuk animasi saat scroll
+function animateOnScroll() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Element yang akan dianimate
+    const elementsToAnimate = document.querySelectorAll('.berita-card');
+    
+    elementsToAnimate.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.6s ease, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(el);
+    });
+}
+
+// Fungsi untuk tombol load more
+function initLoadMore() {
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // Simulasi loading
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat...';
+            this.disabled = true;
+            
+            // Simulasi pengambilan data
+            setTimeout(() => {
+                // Reset button
+                this.innerHTML = '<i class="fas fa-plus"></i> Muat Lebih Banyak';
+                this.disabled = false;
+                
+                // Tampilkan notifikasi
+                showNotification('Tidak ada berita lagi untuk dimuat', 'info');
+            }, 1500);
+        });
+    }
+}
+
+// Fungsi untuk menampilkan notifikasi
+function showNotification(message, type = 'info') {
+    // Hapus notifikasi sebelumnya jika ada
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${getNotificationIcon(type)}"></i>
+        <span>${message}</span>
+        <button onclick="this.parentElement.remove()">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    
+    // Style notification
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: ${getNotificationColor(type)};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        animation: slideInUp 0.3s ease;
+        max-width: 400px;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove setelah 5 detik
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 5000);
+}
+
+// Helper function untuk notifikasi
+function getNotificationIcon(type) {
+    const icons = {
+        'success': 'check-circle',
+        'error': 'exclamation-circle',
+        'warning': 'exclamation-triangle',
+        'info': 'info-circle'
+    };
+    return icons[type] || 'info-circle';
+}
+
+function getNotificationColor(type) {
+    const colors = {
+        'success': '#4caf50',
+        'error': '#f44336',
+        'warning': '#ff9800',
+        'info': '#2196f3'
+    };
+    return colors[type] || '#2196f3';
+}
+
+// Tambahkan style untuk notifikasi
+const notificationStyles = `
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.notification button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.notification button:hover {
+    opacity: 1;
+}
+`;
+
+// Inject notification styles
+const styleSheet = document.createElement('style');
+styleSheet.textContent = notificationStyles;
+document.head.appendChild(styleSheet);
+
+// JavaScript untuk halaman PPDB sdk
+// JavaScript untuk interaksi section Syarat & Ketentuan
+document.addEventListener('DOMContentLoaded', function() {
+    const termsItems = document.querySelectorAll('.terms-item');
+    
+    // Animasi saat halaman dimuat
+    setTimeout(() => {
+        termsItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, 150 * index);
+        });
+    }, 300);
+    
+    // Setup initial state untuk animasi
+    termsItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    // Efek hover untuk item
+    termsItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('i');
+            icon.style.transform = 'scale(1.2)';
+            icon.style.transition = 'transform 0.3s ease';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('i');
+            icon.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Animasi untuk card saat scroll
+    const termsCard = document.querySelector('.terms-card');
+    
+    function checkScroll() {
+        const scrollPosition = window.scrollY;
+        const cardPosition = termsCard.getBoundingClientRect().top + scrollPosition;
+        const windowHeight = window.innerHeight;
+        
+        if (scrollPosition > cardPosition - windowHeight + 100) {
+            termsCard.style.opacity = '1';
+            termsCard.style.transform = 'translateY(0)';
+        }
+    }
+    
+    // Setup initial state untuk card animation
+    termsCard.style.opacity = '0';
+    termsCard.style.transform = 'translateY(30px)';
+    termsCard.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    
+    // Check scroll position on load and scroll
+    checkScroll();
+    window.addEventListener('scroll', checkScroll);
+});
+
+// JavaScript untuk kontak
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements to animate
+    const contactCards = document.querySelectorAll('.contact-card');
+    const addressBox = document.querySelector('.address-box');
+    const mapSimple = document.querySelector('.map-simple');
+    const mapContainer = document.querySelector('.map-container');
+    
+    // Intersection Observer
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('contact-card')) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }, entry.target.dataset.delay || 0);
+                }
+                
+                if (entry.target.classList.contains('address-box')) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+                
+                if (entry.target.classList.contains('map-simple')) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+                
+                if (entry.target.classList.contains('map-container')) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Apply animations
+    contactCards.forEach((card, index) => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.dataset.delay = index * 100;
+        observer.observe(card);
+    });
+    
+    if (addressBox) {
+        addressBox.style.opacity = 0;
+        addressBox.style.transform = 'translateY(20px)';
+        addressBox.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(addressBox);
+    }
+    
+    if (mapSimple) {
+        mapSimple.style.opacity = 0;
+        mapSimple.style.transform = 'translateY(20px)';
+        mapSimple.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(mapSimple);
+    }
+    
+    if (mapContainer) {
+        mapContainer.style.opacity = 0;
+        mapContainer.style.transform = 'translateY(20px)';
+        mapContainer.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(mapContainer);
+    }
+    
+    // Contact card click functionality
+    contactCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Simulate contact action based on card type
+            const icon = this.querySelector('.contact-icon i');
+            const details = this.querySelector('.contact-details p');
+            
+            if (icon.classList.contains('fa-phone')) {
+                alert(`Memanggil: ${details.textContent}`);
+            } else if (icon.classList.contains('fa-whatsapp')) {
+                alert(`Membuka WhatsApp: ${details.textContent}`);
+            } else if (icon.classList.contains('fa-envelope')) {
+                alert(`Mengirim email ke: ${details.textContent}`);
+            } else if (icon.classList.contains('fa-instagram')) {
+                alert(`Membuka Instagram: ${details.textContent}`);
+            } else if (icon.classList.contains('fa-youtube')) {
+                alert(`Membuka YouTube: ${details.textContent}`);
+            } else if (icon.classList.contains('fa-tiktok')) {
+                alert(`Membuka TikTok: ${details.textContent}`);
+            } else if (icon.classList.contains('fa-phone-square-alt')) {
+                alert(`Memanggil: ${details.textContent}`);
+            }
+        });
+        
+        // Add pulse animation on hover
+        card.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.contact-icon');
+            icon.style.animation = 'pulse 1s infinite';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.contact-icon');
+            icon.style.animation = 'none';
+        });
+    });
+    
+    // Add CSS for pulse animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Map interaction
+    const simpleMapImage = document.querySelector('.simple-map-image');
+    if (simpleMapImage) {
+        simpleMapImage.addEventListener('click', function() {
+            alert('Denah sekolah akan diperbesar. Dalam implementasi nyata, ini akan membuka modal dengan denah yang lebih detail.');
+        });
+    }
+    
+    // Copy to clipboard functionality for contact details
+    contactCards.forEach(card => {
+        card.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            const details = this.querySelector('.contact-details p');
+            const textToCopy = details.textContent;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Show feedback
+                const originalBg = this.style.backgroundColor;
+                this.style.backgroundColor = '#e1f5fe';
+                
+                setTimeout(() => {
+                    this.style.backgroundColor = originalBg;
+                }, 1000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    });
+});
+
+// Javascript Testimoni Slider Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.testimoni-slider');
+    const slides = document.querySelectorAll('.testimoni-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    // Initialize slider
+    function initSlider() {
+        updateSlider();
+        startAutoSlide();
+        
+        // Add animation to slides
+        slides.forEach((slide, index) => {
+            slide.style.opacity = 0;
+            slide.style.transform = 'translateY(20px)';
+            slide.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Animate first slide
+        setTimeout(() => {
+            if (slides[0]) {
+                slides[0].style.opacity = 1;
+                slides[0].style.transform = 'translateY(0)';
+            }
+        }, 100);
+    }
+
+    // Update slider position
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+        
+        // Animate current slide
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                slide.style.opacity = 1;
+                slide.style.transform = 'translateY(0)';
+            } else {
+                slide.style.opacity = 0;
+                slide.style.transform = 'translateY(20px)';
+            }
+        });
+    }
+
+    // Go to specific slide
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    // Next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    // Previous slide
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    // Auto slide
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Reset auto slide timer
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // Event listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        }
+    });
+
+    // Touch swipe for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    slider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left - next slide
+            nextSlide();
+        }
+        
+        if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right - previous slide
+            prevSlide();
+        }
+    }
+
+    // Hover effects for testimoni cards
+    const testimoniCards = document.querySelectorAll('.testimoni-card');
+    
+    testimoniCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (Array.from(slides).indexOf(this.parentElement) !== currentSlide) {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    });
+
+    // CTA button animation
+    const ctaButton = document.querySelector('.cta-button');
+    
+    if (ctaButton) {
+        ctaButton.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 5px 15px rgba(26, 86, 219, 0.3)';
+        });
+        
+        ctaButton.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
+        
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+            
+            alert('Terima kasih! sudah memberikan testimoni.');
+        });
+    }
+
+    // Initialize the slider
+    initSlider();
 });
